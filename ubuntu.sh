@@ -29,6 +29,7 @@ bin=startubuntu.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
+cd \`dirname \$0\`
 command="proot"
 command+=" --link2symlink"
 command+=" -0"
