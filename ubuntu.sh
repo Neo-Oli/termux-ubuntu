@@ -22,14 +22,13 @@ if [ "$first" != 1 ];then
     echo "decompressing ubuntu image"
     proot --link2symlink tar -xf $cur/ubuntu.tar.gz||:
     echo "fixing nameserver, otherwise it can't connect to the internet"
-    echo "nameserver 8.8.8.8" > $folder/etc/resolv.conf
+    echo "nameserver 8.8.8.8" > etc/resolv.conf
     cd $cur
 fi
 bin=startubuntu.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
-export PROOT_NO_SECCOMP=1
 command="proot"
 command+=" --link2symlink"
 command+=" -0"
@@ -38,7 +37,9 @@ command+=" -b /system"
 command+=" -b /dev/"
 command+=" -b /sys/"
 command+=" -b /proc/"
-command+=" -b /data/data/com.termux/files/home"
+#uncomment the following line to have access to the home directory of termux
+#command+=" -b /data/data/com.termux/files/home"
+command+=" -w /root"
 command+=" /usr/bin/env -i"
 command+=" HOME=/root"
 command+=" PATH=/bin:/usr/bin:/sbin:/usr/sbin"
