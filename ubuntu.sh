@@ -45,7 +45,7 @@ command+=" HOME=/root"
 command+=" PATH=/bin:/usr/bin:/sbin:/usr/sbin"
 command+=" TERM=\$TERM"
 command+=" /bin/bash --login"
-
+export PROOT_NO_SECCOMP=1
 com="\$@"
 if [ -z "\$1" ];then
     exec \$command
