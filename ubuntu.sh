@@ -29,7 +29,7 @@ bin=startubuntu.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
-cd `pwd`
+cd \$(dirname \$0)
 
 command="proot"
 command+=" --link2symlink"
@@ -47,7 +47,6 @@ command+=" HOME=/root"
 command+=" PATH=/bin:/usr/bin:/sbin:/usr/sbin"
 command+=" TERM=\$TERM"
 command+=" /bin/bash --login"
-export PROOT_NO_SECCOMP=1
 com="\$@"
 if [ -z "\$1" ];then
     exec \$command
