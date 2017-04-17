@@ -6,7 +6,7 @@ The script will make it's files in the current directory. So if you want your Ub
 ```
 mkdir ~/jails/ubuntu1
 cd ~/jails/ubuntu1
-~/termux-ubuntu/ubuntush
+~/termux-ubuntu/ubuntu.sh
 ```
 
 After running it you can run "startubuntu.sh" to switch into your ubuntu
