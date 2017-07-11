@@ -9,5 +9,5 @@ cd ~/jails/ubuntu1
 ~/termux-ubuntu/ubuntu.sh
 ```
 
-After running it you can run "startubuntu.sh" to switch into your ubuntu
+After running it you can run "start.sh" to switch into your ubuntu
 
