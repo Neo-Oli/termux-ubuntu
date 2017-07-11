@@ -25,7 +25,7 @@ if [ "$first" != 1 ];then
     echo "nameserver 8.8.8.8" > etc/resolv.conf
     cd $cur
 fi
-bin=startubuntu.sh
+bin=start.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
@@ -58,4 +58,4 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
-echo "You can now launch Ubuntu with the ./startubuntu.sh script"
+echo "You can now launch Ubuntu with the ./start.sh script"
