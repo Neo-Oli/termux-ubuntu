@@ -30,7 +30,8 @@ echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
 cd \$(dirname \$0)
-
+#unset LD_PRELOAD in case termux-exec is installed
+unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
 command+=" -0"
@@ -46,6 +47,7 @@ command+=" /usr/bin/env -i"
 command+=" HOME=/root"
 command+=" PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
 command+=" TERM=\$TERM"
+command+=" LANG=\$LANG"
 command+=" /bin/bash --login"
 com="\$@"
 if [ -z "\$1" ];then
