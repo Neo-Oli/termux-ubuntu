@@ -8,9 +8,9 @@ if [ "$first" != 1 ];then
     if [ ! -f "ubuntu.tar.gz" ]; then
         echo "downloading ubuntu-image"
         if [ "$(dpkg --print-architecture)" = "aarch64" ];then
-            wget https://partner-images.canonical.com/core/zesty/current/ubuntu-zesty-core-cloudimg-arm64-root.tar.gz -O ubuntu.tar.gz
+            wget https://partner-images.canonical.com/core/artful/current/ubuntu-artful-core-cloudimg-arm64-root.tar.gz -O ubuntu.tar.gz
         elif [ "$(dpkg --print-architecture)" = "arm" ];then
-            wget https://partner-images.canonical.com/core/zesty/current/ubuntu-zesty-core-cloudimg-armhf-root.tar.gz -O ubuntu.tar.gz
+            wget https://partner-images.canonical.com/core/artful/current/ubuntu-artful-core-cloudimg-armhf-root.tar.gz -O ubuntu.tar.gz
         else
             echo "unknown architecture"
             exit 1
