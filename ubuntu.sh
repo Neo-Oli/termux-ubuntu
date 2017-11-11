@@ -20,7 +20,7 @@ if [ "$first" != 1 ];then
     mkdir -p $folder
     cd $folder
     echo "decompressing ubuntu image"
-    proot --link2symlink tar -xf $cur/ubuntu.tar.gz||:
+    proot --link2symlink tar -xf $cur/ubuntu.tar.gz --exclude='dev'||:
     echo "fixing nameserver, otherwise it can't connect to the internet"
     echo "nameserver 8.8.8.8" > etc/resolv.conf
     cd $cur
