@@ -25,6 +25,7 @@ if [ "$first" != 1 ];then
     echo "nameserver 8.8.8.8" > etc/resolv.conf
     cd $cur
 fi
+mkdir -p binds
 bin=start.sh
 echo "writing launch script"
 cat > $bin <<- EOM
