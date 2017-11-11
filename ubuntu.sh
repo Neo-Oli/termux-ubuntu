@@ -25,6 +25,9 @@ if [ "$first" != 1 ];then
     echo "nameserver 8.8.8.8" > etc/resolv.conf
     cd $cur
 fi
+
+echo "linking home directory"
+ln -s /data/data/com.termux/files/home /home
 bin=start.sh
 echo "writing launch script"
 cat > $bin <<- EOM
@@ -40,11 +43,10 @@ command+=" -b /system"
 command+=" -b /dev/"
 command+=" -b /sys/"
 command+=" -b /proc/"
-#uncomment the following line to have access to the home directory of termux
-#command+=" -b /data/data/com.termux/files/home"
-command+=" -w /root"
+command+=" -b /data/data/com.termux/files/home"
+command+=" -w /home"
 command+=" /usr/bin/env -i"
-command+=" HOME=/root"
+command+=" HOME=/home"
 command+=" PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
 command+=" TERM=\$TERM"
 command+=" LANG=\$LANG"
