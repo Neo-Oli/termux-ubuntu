@@ -15,6 +15,8 @@ if [ "$first" != 1 ];then
             wget https://partner-images.canonical.com/core/artful/current/ubuntu-artful-core-cloudimg-i386-root.tar.gz -O ubuntu.tar.gz
         elif [ "$(dpkg --print-architecture)" = "i386" ];then
             wget https://partner-images.canonical.com/core/artful/current/ubuntu-artful-core-cloudimg-i386-root.tar.gz -O ubuntu.tar.gz
+        elif [ "$(dpkg --print-architecture)" = "amd64" ];then
+            wget https://partner-images.canonical.com/core/artful/current/ubuntu-artful-core-cloudimg-amd64-root.tar.gz -O ubuntu.tar.gz
         else
             echo "unknown architecture"
             exit 1
