@@ -36,13 +36,14 @@ bin=start-ubuntu.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
+cd $(realpath $folder/..)
 ## unset LD_PRELOAD in case termux-exec is installed
 unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $(realpath $folder)"
-if [ -n "\$(ls -A binds)" ]; then
+if [ -n "\$(ls -A ${cur}/binds)" ]; then
     for f in binds/* ;do
       . \$f
     done
