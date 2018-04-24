@@ -43,7 +43,7 @@ command="proot"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $folder"
-if [ -n "\$(ls -A ${cur}/binds)" ]; then
+if [ -n "\$(ls -A binds)" ]; then
     for f in binds/* ;do
       . \$f
     done
