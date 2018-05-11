@@ -48,12 +48,10 @@ if [ -n "\$(ls -A binds)" ]; then
       . \$f
     done
 fi
-command+=" -b /system"
 command+=" -b /dev"
-command+=" -b /sys"
 command+=" -b /proc"
 ## uncomment the following line to have access to the home directory of termux
-#command+=" -b /data/data/com.termux/files/home"
+#command+=" -b /data/data/com.termux/files/home:/root"
 command+=" -w /root"
 command+=" /usr/bin/env -i"
 command+=" HOME=/root"
