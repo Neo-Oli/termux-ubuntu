@@ -16,5 +16,5 @@ wget https://raw.githubusercontent.com/Neo-Oli/termux-ubuntu/master/ubuntu.sh
 bash ubuntu.sh
 ```
 
-After running it you can run "start.sh" to switch into your ubuntu
+After running it you can run "start-ubuntu.sh" to switch into your ubuntu
 
