@@ -17,6 +17,8 @@ if [ "$first" != 1 ];then
 			archurl="amd64" ;;
 		i*86)
 			archurl="i386" ;;
+		x86_64)
+			archurl="amd64" ;;
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
