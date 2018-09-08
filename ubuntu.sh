@@ -54,6 +54,8 @@ command+=" -b /dev"
 command+=" -b /proc"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
+## uncomment the following line to mount /sdcard directly to / 
+#command+=" -b /sdcard"
 command+=" -w /root"
 command+=" /usr/bin/env -i"
 command+=" HOME=/root"
