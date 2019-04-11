@@ -44,8 +44,8 @@ unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
 command+=" -0"
-command+=" -r $folder"
-if [ -n "\$(ls -A binds)" ]; then
+command+=" -r /data/data/com.termux/files/home/jails/ubuntu/ubuntu-fs"
+if [ -n "\$(ls -A /data/data/com.termux/files/home/jails/ubuntu/binds)" ]; then
     for f in binds/* ;do
       . \$f
     done
@@ -75,4 +75,5 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
-echo "You can now launch Ubuntu with the ./${bin} script"
+cp start-ubuntu.sh /data/data/com.termux/files/usr/bin/ubuntu
+echo "You can now launch Ubuntu with the 'ubuntu' command from anywhere!"
