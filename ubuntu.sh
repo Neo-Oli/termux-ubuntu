@@ -29,8 +29,6 @@ if [ "$first" != 1 ];then
 	cd "$folder"
 	echo "decompressing ubuntu image"
 	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
-	echo "fixing nameserver, otherwise it can't connect to the internet"
-	echo "nameserver 1.1.1.1" > etc/resolv.conf
 	cd "$cur"
 fi
 mkdir -p binds
@@ -39,6 +37,18 @@ echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
 cd \$(dirname \$0)
+## setup resolv.conf
+currentdns="\$(getprop net.dns1)"
+i=1
+
+rm -f $folder/etc/resolv.conf
+
+while [ ! -z "\$currentdns" ]; do
+    echo "nameserver \$currentdns" >> $folder/etc/resolv.conf
+    i=\$((i+1))
+    currentdns=\$(getprop net.dns\${i})
+done
+
 ## unset LD_PRELOAD in case termux-exec is installed
 unset LD_PRELOAD
 command="proot"
