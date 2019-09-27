@@ -18,3 +18,7 @@ bash ubuntu.sh
 
 After running it you can run "start-ubuntu.sh" to switch into your ubuntu
 
+Also if you whant autostart new enviroment when you start new session in Termux, you can add this:
+```
+echo bash jails/ubuntu/./start-ubunut.sh >> ~/.bash_login
+```
