@@ -1,5 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
-folder=ubuntu-fs
+read -p "install to(default: ./ubuntu-fs):" dir
+if [ ! -n "$dir" ]; then
+ folder="$dir"
+else
+ folder="ubuntu-fs"
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
@@ -29,8 +33,12 @@ if [ "$first" != 1 ];then
 	cd "$folder"
 	echo "decompressing ubuntu image"
 	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
+	read -p "enter your nameserver address(default: 1.1.1.1):" nameserver
 	echo "fixing nameserver, otherwise it can't connect to the internet"
-	echo "nameserver 1.1.1.1" > etc/resolv.conf
+	if [ ! -n "$nameserver" ]; then
+	 echo "nameserver $nameserver" > etc/resolv.conf
+	else
+	 echo "nameserver 1.1.1.1" > etc/resolve.conf
 	cd "$cur"
 fi
 mkdir -p binds
