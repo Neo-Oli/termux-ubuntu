@@ -4,7 +4,7 @@ if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
 fi
-tarball="ubuntu.tar.gz"
+tarball="ubuntu.tar.xz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "downloading ubuntu-image"
@@ -22,7 +22,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://partner-images.canonical.com/core/disco/current/ubuntu-disco-core-cloudimg-${archurl}-root.tar.gz" -O $tarball
+		wget "https://cloud-images.ubuntu.com/releases/disco/release/ubuntu-19.04-server-cloudimg-${archurl}-root.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
